@@ -1,7 +1,11 @@
 # Tandy 68000/XENIX 3.4
-_Yes, that's right, it's an upgrade disk for a new version of XENIX for Big Tandy computers!_  Read the included Tandy_68000_XENIX_3.4.3_Release_Notes.txt file for full information about what's included in this release.
+_Yes, that's right, it's a new version of XENIX for Big Tandy computers!_  Read the included Tandy_68000_XENIX_3.4.3_Release_Notes.txt file for full information about what's included in this release.
 
-Here is a short summary from the Release Notes:
+There are two disk images here:
+- An upgrade floppy to upgrade XENIX 3.3 to XENIX 3.4.
+- A fully installed hard disk image of XENIX 3.4.
+
+Here is a short summary of XENIX 3.4 from the Release Notes:
 
 <ins>New Kernel Features</ins>
 - Brand new kernel supporting automatic detection of MMU size, with automatic adjusting of user memory to fit what the MMU can support.
