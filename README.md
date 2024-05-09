@@ -2,8 +2,8 @@
 _Yes, that's right, it's a new version of XENIX for Big Tandy computers!_  Read the included Tandy_68000_XENIX_3.4.3_Release_Notes.txt file for full information about what's included in this release.
 
 There are two disk images here:
-- An upgrade floppy to upgrade XENIX 3.3 to XENIX 3.4.
-- A fully installed hard disk image of XENIX 3.4.
+- An upgrade floppy to upgrade XENIX 3.3 to XENIX 3.4 (`Tandy_68000_XENIX_3.4.3-FINAL_2023-05-06.zip`).
+- A fully installed hard disk image of XENIX 3.4 (`XENIX-34_8MB-swap.zip`).
 
 Here is a short summary of XENIX 3.4 from the Release Notes:
 
