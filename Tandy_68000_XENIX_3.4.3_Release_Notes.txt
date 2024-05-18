@@ -1,0 +1,57 @@
+68000/XENIX version 3.4.3 Release Notes    6-May-2023
+
+FINAL RELEASE NOTES
+- Added a note to the Release Notes file about the Tandy Discord and how to get an invite.
+
+RC3.2 UPDATE NOTES
+- Updated install script to call /etc/tz after installing 3.4's files since we replaced /etc/rc to allow the user to (re)set their timezone.
+- Updated cfg with hidden options to allow it to change the kernel variables Timezone and Dstflag.
+- Updated Release Notes to include all files touched by the update.
+
+RC3.1 UPDATE NOTES
+- Fixed a bug in /etc/hwclock when using "-w" to set the RTC's time; the month was off by one.
+
+RC2 UPDATE NOTES
+- Fixed a kernel bug that could cause crashing.
+- Fixed install script to actually back up /xenix to /xenix- like I was supposed to before extracting 3.4's files.
+- Added help page for autoboot(M).
+- Added rebuild of the help command's keyword file.  Forgot to add this last time.
+
+ISSUES
+- XENIX 3.4(03) will not run under trs80gp without '-ee', you'll get a Supervisor Trap 4.  It is unknown at this time why this happens.  This issue does not occur on Real Hardware(tm).  You must use trs80gp version 2.4.9 or later with the '-ee' option or XENIX 3.4 will not boot.
+- For help with any issues you may encounter or if you have any questions, there is a Tandy Discord server on which the creators and other users of this release hang out and can answer questions.  To get an invite, send email to tandy-emeritus@outlook.com and we'll send you one.
+
+XENIX 3.4 RELEASE NOTES
+New Kernel Features
+- Brand new kernel supporting automatic detection of MMU size, with automatic adjusting of user memory to fit what the MMU can support.
+- New crashbeep feature, which is settable using /etc/cfg.  The kernel will beep when halting for any reason.
+- Automatic move of allocateable items (such as disk buffers) outside of MMU-addressable space, which maximizes memory for user processes.  This is applicable for systems with no MMU exension board and more than 1MB of memory, and for systems with a Tandy MMU exension board (or clone) and more than 4MB of memory.
+- New Real Time Clock driver for both trs80gp (use the '-ee' option) and Tandy Emeritus' new DS1511 RTC board.  Allows autobooting with F1 (use 'autoboot -a' as root to enable) and having XENIX come up with the correct time set with no prompting.  In trs80gp, it allows use of Turbo and Haste modes without the XENIX clock speeding up.  You can just leave Turbo on!
+
+New Utilities
+- New RTC utility /etc/hwclock, which allows querying and setting of the RTC. Setting is not supported in trs80gp.
+- New version of /etc/cfg to support all the latest kernel features in XENIX 3.4.
+- Updated /bin/as (68000 assembler) with a bug fix for long assembly macros.
+- New version of /etc/getty which displays both the system name and the terminal in the banner.
+- New version of /etc/shutdown which supports being linked to /etc/reboot, and also now allows "-n" in front of the kernel-name argument.
+- New /etc/reboot link to /etc/haltsys which reboots the system instead of halting.
+- New and updated help pages for all of the above.
+
+Updated Files
+- Updated install script which recognizes /dev/ttyc? as being logged in at the console.
+- Updated shutdown program with options -k (warns users w/o shutting down 'just kidding'), and -q (quick shutdown, no warning to users).  Also  supports "shutdown now".
+- An entry is added to /usr/lib/crontab which calls /etc/hwclock every 30 minutes to resync the system clock (the clock interrupt on Tandy hardware isn't terribly accurate).  This won't do any harm if you do not have an RTC.
+- Added help pages missing in previous XENIX releases for adj_clock, autoboot, cfg, and hello.
+- Updated diskutil to version 3.43 which supports WD2010 hard drive controllers.
+- Updated z80ctl to version 3(136).  This was the last version Frank Durda IV made.
+
+Other Files Updated & Added
+/dev/rtc - New Real Time Clock device.
+/etc/logbook - An install entry is added for XENIX 3.4 OS.
+/etc/motd - "Welcome to XENIX 3.4"
+/etc/rc - Contains an autoboot bug fix for the reboot status email.
+/etc/version - Updated to "03.04.00".
+/etc/versionlog - KERNEL entry is updated to 03.04.00.
+/m68kdiags & /m68010diags - New 68000-based diagnostics programs.  Type one of those at the boot prompt instead of 'xenix'.  These new diagnostic programs can test the newer MMU's offset and limit registers to the maximum size the MMU can support.  This maximum size is auto-detected the same way XENIX now auto-detects the MMU size.  These programs have a help page.  When logged into XENIX 3.4, type "help m68kdiags" to see the manual.
+/usr/include/sys/ioctl.h - Adds new ioctls for /dev/rtc RIOGETBT & RIOSETBT.
+/usr/lib/x-3.4_bak.tar - A tar file containing a backup copy of all files updated by XENIX before they were updated.
