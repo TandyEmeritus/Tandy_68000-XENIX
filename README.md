@@ -11,7 +11,7 @@ Here is a short summary of XENIX 3.4 from the Release Notes:
 - Brand new kernel supporting automatic detection of MMU size, with automatic adjusting of user memory to fit what the MMU can support.
 - New crashbeep feature, which is settable using /etc/cfg.  The kernel will beep when halting for any reason.
 - Automatic move of allocateable items (such as disk buffers) outside of MMU-addressable space, which maximizes memory for user processes.  This is applicable for systems with no MMU exension board and more than 1MB of memory, and for systems with a Tandy MMU exension board (or clone) and more than 4MB of memory.
-- New Real Time Clock driver for both trs80gp (use the '-ee' option) and Tandy Emeritus' new DS1511 RTC board.  Allows autobooting with F1 (use 'autoboot -a' as root to enable) and having XENIX come up with the correct time set with no prompting.  In trs80gp, it allows use of Turbo and Haste modes without the XENIX clock speeding up.  You can just leave Turbo on!
+- New Real Time Clock driver for both trs80gp (must use the '-ee' option or XENIX 3.4 will crash) and Tandy Emeritus' new DS1511 RTC board.  Allows autobooting with F1 (use 'autoboot -a' as root to enable) and having XENIX come up with the correct time set with no prompting.  In trs80gp, it allows use of Turbo and Haste modes without the XENIX clock speeding up.  You can just leave Turbo on!
 
 <ins>New Utilities</ins>
 - New RTC utility /etc/hwclock, which allows querying and setting of the RTC. Setting is not supported in trs80gp.
