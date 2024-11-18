@@ -1,4 +1,7 @@
-68000/XENIX version 3.4.3 Release Notes    6-May-2023
+68000/XENIX version 3.4.3 Release Notes    6-May-2023, updated 17-Nov-2024
+
+17-Nov-2024 UPDATE
+- Updated RTC note about running under `trs80gp`; versions v2.5.4 and later default to the RTC enabled.
 
 FINAL RELEASE NOTES
 - Added a note to the Release Notes file about the Tandy Discord and how to get an invite.
@@ -18,7 +21,7 @@ RC2 UPDATE NOTES
 - Added rebuild of the help command's keyword file.  Forgot to add this last time.
 
 ISSUES
-- XENIX 3.4(03) will not run under trs80gp without '-ee', you'll get a Supervisor Trap 4.  It is unknown at this time why this happens.  This issue does not occur on Real Hardware(tm).  You must use trs80gp version 2.4.9 or later with the '-ee' option or XENIX 3.4 will not boot.
+- XENIX 3.4(03) will not run under trs80gp versions prior to 2.5.4 without '-ee', you'll get a Supervisor Trap 4.  It is unknown at this time why this happens.  This issue does not occur on Real Hardware(tm).  On versions of trs80gp starting with 2.5.4 or later the option is now `-rtc16` and is on by default.  The RTC may be turned off using `-rtc16x`.
 - For help with any issues you may encounter or if you have any questions, there is a Tandy Discord server on which the creators and other users of this release hang out and can answer questions.  To get an invite, send email to tandy-emeritus@outlook.com and we'll send you one.
 
 XENIX 3.4 RELEASE NOTES
@@ -26,7 +29,7 @@ New Kernel Features
 - Brand new kernel supporting automatic detection of MMU size, with automatic adjusting of user memory to fit what the MMU can support.
 - New crashbeep feature, which is settable using /etc/cfg.  The kernel will beep when halting for any reason.
 - Automatic move of allocateable items (such as disk buffers) outside of MMU-addressable space, which maximizes memory for user processes.  This is applicable for systems with no MMU exension board and more than 1MB of memory, and for systems with a Tandy MMU exension board (or clone) and more than 4MB of memory.
-- New Real Time Clock driver for both trs80gp (use the '-ee' option) and Tandy Emeritus' new DS1511 RTC board.  Allows autobooting with F1 (use 'autoboot -a' as root to enable) and having XENIX come up with the correct time set with no prompting.  In trs80gp, it allows use of Turbo and Haste modes without the XENIX clock speeding up.  You can just leave Turbo on!
+- New Real Time Clock driver for both trs80gp and Tandy Emeritus' new DS1511 RTC board.  Allows autobooting with F1 (use 'autoboot -a' as root to enable) and having XENIX come up with the correct time set with no prompting.  In trs80gp, it allows use of Turbo and Haste modes without the XENIX clock speeding up.  You can just leave Turbo on!
 
 New Utilities
 - New RTC utility /etc/hwclock, which allows querying and setting of the RTC. Setting is not supported in trs80gp.
